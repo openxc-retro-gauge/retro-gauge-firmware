@@ -25,22 +25,20 @@ void receiveCommands() {
 }
 
 void parse_message(String message) {
-    for(unsigned int i = 0; i <= message.length(); i++) {
-        if(message[i] == '(') {
-            int digitVal = 10*(message[i+1]-'0') + (message[i+2]-'0'); 
-            //Update Digits
-            setDisplay(LED_CHAR_SET[digitVal/10],LED_CHAR_SET[digitVal%10]);
-        }
+    if(message[0] == '(') {
+        int digitVal = 10*(message[1]-'0') + (message[2]-'0');
+        //Update Digits
+        setDisplay(LED_CHAR_SET[digitVal/10],LED_CHAR_SET[digitVal%10]);
+    }
 
-        if (message[i] == ')') {
-            long motorVal = 10*(message[i+1]-'0') + (message[i+2]-'0');
-            unsigned long motorPer = motorVal*1000/SPEED_SLOPE;
-            setMotorTarget(STEPS * motorPer / 100);
-        }
+    if(message[message.length()-1] == ')') {
+        double motorVal = 10*(message[message.length()-3]-'0') + (message[message.length()-2]-'0');
+        unsigned long motorPer = motorVal*1000/SPEED_SLOPE;
+        setMotorTarget(STEPS * motorPer / 100);
+    }
 
-        if(message[i] == '<') {
-            int rgbValue = 100*(message[i+1] -'0') + 10*(message[i+2]-'0') + (message[i+3]-'0');
-            setLED(rgbValue, 255, 255);
-        }
+    if (message[0] == '<') {
+        int rgbValue = 100*(message[i+1] -'0') + 10*(message[i+2]-'0') + (message[i+3]-'0');
+        setLED(rgbValue, 255, 255);
     }
 }

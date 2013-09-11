@@ -1,21 +1,31 @@
-Retro Gauge Arduino Source Code
-================================
+OpenXC Retro Gauge
+=========================
 
-## Dependencies
+The Retro Gauge is a mechanical vehicle gauge that displays data received over a
+serial communication line. One possible use of the gauge is to display vehicle
+data from the [OpenXC platform][openxc].
 
-Run this from the top level directory to download the dependencies:
+The design intent was to keep the gauge
+as open and accessible as possible so that the community could contribute and
+benefit from the design.
 
-    $ git submodule update --init
+For more details on the project, visit the [project page on the OpenXC
+website](http://openxcplatform.com/hardware-addons/retro-gauge.html).
+
+For an instructional lab on how to build the gauge, see the [Retro Gauge
+Lab](http://retro-gauge-lab.openxcplatform.com/).
+
+## Retro Gauge Arduino Firmare
+
+**Dependencies**
 
 Besides a standard Arduino development environment, the firmware also requires
-the [SwitecX25 library](https://github.com/clearwater/SwitecX25) to drive the
-stepper motor.
-
-This library is based on [Guy Carpenter's Gaugette project][gaugette].
+the [SwitecX25 library](http://guy.carpenter.id.au/gaugette/about/) to drive the
+stepper motor. This library is based on [Guy Carpenter's Gaugette project][gaugette]
 
 [gaugette]: http://guy.carpenter.id.au/gaugette/about/
 
-## Compiling with Arduino IDE
+**Compiling with Arduino IDE**
 
 After updating the submodules, open the `firmware.ino` sketch in the Arduion
 IDE. In the menu, go to `Sketch -> Import Library -> Add Library`, navigate to
@@ -27,7 +37,7 @@ w/ ATmega328` option.
 Finally, hit upload! You may need to manually select the right serial port if
 you have more than one device connected.
 
-## Compiling with Makefile
+**Compiling with Makefile**
 
 After updating the submodules, run `make` in the firmware directory to compile.
 Run `make upload` to flash an attached gauge.
@@ -37,3 +47,29 @@ port, but you may need to specify it manually with `MONITOR_PORT` if it doesn't
 work. For example, if your device shows up as /dev/ttyUSB1:
 
     MONITOR_PORT=/dev/ttyUSB1 make upload
+
+## Resources
+
+This repository is one of 4 repositories listed below:
+
+**Mechanical Enclosure Design** - The
+[retro-gauge-enclosure](http://github.com/openxc-retro-gauge/retro-gauge-enclosure)
+repository contains .STL and STEP files for the 3D printable gauge housing.
+
+**Hardware** - The
+[retro-gauge-hardware](http://github.com/openxc-retro-gauge/retro-gauge-hardware)
+repository contains Eagle schematics and PCB layouts for the gauge's embedded
+hardware.
+
+**Firmware** - The
+[retro-gauge-firmware](http://github.com/openxc-retro-gauge/retro-gauge-firmware)
+repository contains Arduino source code to run on the Retro Gauge.
+
+**Android** - The
+[retro-gauge-android](http://github.com/openxc-retro-gauge/retro-gauge-android)
+repository contains an Android application to control the gauge with vehicle
+data from the [OpenXC platform][openxc].
+
+## License
+
+The firmware source code is available under the BSD open source license.

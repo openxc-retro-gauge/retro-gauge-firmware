@@ -29,9 +29,10 @@ void selfTest() {
     clearDisplay();
 
     Serial.println("Testing LEDs...");
-    for(int hue = 0; hue < 260; hue++) {
-        for(int saturation = 0; saturation < 256; saturation++) {
+    for(int hue = 0; hue < 260; hue += 10) {
+        for(int saturation = 0; saturation < 256; saturation += 10) {
             setLED(hue, saturation, 255);
+            delay(5);
         }
     }
 

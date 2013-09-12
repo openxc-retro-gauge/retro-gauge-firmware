@@ -28,7 +28,7 @@ void parse_message(String message) {
     if(message[0] == '(') {
         int digitVal = 10*(message[1]-'0') + (message[2]-'0');
         //Update Digits
-        setDisplay(LED_CHAR_SET[digitVal/10],LED_CHAR_SET[digitVal%10]);
+        setDisplay(digitVal / 10, digitVal % 10);
     }
 
     if(message[message.length()-1] == ')') {
@@ -38,7 +38,7 @@ void parse_message(String message) {
     }
 
     if (message[0] == '<') {
-        int rgbValue = 100*(message[i+1] -'0') + 10*(message[i+2]-'0') + (message[i+3]-'0');
+        int rgbValue = 100*(message[1] -'0') + 10*(message[2]-'0') + (message[3]-'0');
         setLED(rgbValue, 255, 255);
     }
 }

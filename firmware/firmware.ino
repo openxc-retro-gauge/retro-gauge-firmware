@@ -52,6 +52,8 @@ void setup(void) {
 
     nextUpdate = micros();
     Serial.println("Gauge initialized.");
+    Serial.println("Setting gauge to 88 for testing");
+    parse_message("(88,88)");
 }
 
 void loop() {

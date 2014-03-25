@@ -21,11 +21,18 @@ Lab](http://retro-gauge-lab.openxcplatform.com/).
 
 Besides a standard Arduino development environment, the firmware also requires
 the [SwitecX25 library](http://guy.carpenter.id.au/gaugette/about/) to drive the
-stepper motor. This library is based on [Guy Carpenter's Gaugette project][gaugette]
+stepper motor. This library is based on [Guy Carpenter's Gaugette project][gaugette].
+
+
 
 [gaugette]: http://guy.carpenter.id.au/gaugette/about/
 
 **Compiling with Arduino IDE**
+
+Update the git submodules to pull down the SwitecX25 library:
+
+    $ cd retro-gauge-firmware
+    $ git submodule update --init
 
 After updating the submodules, open the `firmware.ino` sketch in the Arduion
 IDE. In the menu, go to `Sketch -> Import Library -> Add Library`, navigate to
@@ -39,14 +46,25 @@ you have more than one device connected.
 
 **Compiling with Makefile**
 
-After updating the submodules, run `make` in the firmware directory to compile.
-Run `make upload` to flash an attached gauge.
+Update the git submodules to pull down the SwitecX25 library and the
+Arduino-Makefile project:
+
+    $ cd retro-gauge-firmware
+    $ git submodule update --init
+
+After updating the submodules, compile the firmware:
+
+    $ make
+
+and flash the attached gauge:
+
+    $ make upload
 
 The Makefile will attempt to automatically determine the name of the attached
 port, but you may need to specify it manually with `MONITOR_PORT` if it doesn't
 work. For example, if your device shows up as /dev/ttyUSB1:
 
-    MONITOR_PORT=/dev/ttyUSB1 make upload
+    $ MONITOR_PORT=/dev/ttyUSB1 make upload
 
 ## Resources
 

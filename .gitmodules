@@ -1,9 +1,3 @@
-[submodule "Arduino-Makefile"]
-	path = Arduino-Makefile
-	url = http://github.com/openxc/Arduino-Makefile
-[submodule "SwitecX25"]
-	path = SwitecX25
-	url = https://github.com/openxc/SwitecX25
 [submodule "firmware/SwitecX25"]
 	path = firmware/SwitecX25
 	url = https://github.com/openxc/SwitecX25

@@ -3,4 +3,4 @@
 	url = https://github.com/openxc/SwitecX25
 [submodule "firmware/Arduino-Makefile"]
 	path = firmware/Arduino-Makefile
-	url = http://github.com/openxc/Arduino-Makefile
+	url = http://github.com/sudar/Arduino-Makefile
